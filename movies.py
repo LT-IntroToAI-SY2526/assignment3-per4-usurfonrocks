@@ -423,16 +423,13 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
         ],
     ),
     (
-        "malcolm x",
-        "spike lee",
-        1992,
+        "pink panther",
+        "david niven",
+        1990,
         [
-            "denzel washington",
-            "angela basset",
-            "albert hall",
-            "al freeman jr",
-            "delroy lindo",
-            "spike lee",
+            "peter sellers",
+            "robert wagner",
+            "claudia cardinale"
         ],
     ),
 ]
