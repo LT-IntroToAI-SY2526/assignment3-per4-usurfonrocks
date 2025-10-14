@@ -38,6 +38,16 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
         ],
     ),
     (
+        "malcolm x",
+        "spike lee",
+        1992,
+        [
+            "denzel washington",
+            "angela bassett",
+            "albert brooks",
+        ],
+    ),
+    (
         "boyz n the hood",
         "john singleton",
         1991,
