@@ -175,21 +175,6 @@ def title_by_actor(matches: List[str]) -> List[str]:
                 result.append(get_title(movie))
     return result
 
-# NEW: count movies by a given director (returns a list with one string count)
-def count_movies_by_director(matches: List[str]) -> List[str]:
-    """Counts how many movies in the database were directed by the given director.
-    Args:
-        matches - a list of 1 string, the director name
-    Returns:
-        a list with one string, the count as a string (to match other string outputs)
-    """
-    director = matches[0]
-    count = 0
-    for movie in movie_db:
-        if get_director(movie) == director:
-            count += 1
-    return [str(count)]
-
 # dummy argument is ignored and doesn't matter
 def bye_action(dummy: List[str]) -> None:
     raise KeyboardInterrupt
@@ -209,13 +194,6 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("who acted in %"), actors_by_title),
     (str.split("when was % made"), year_by_title),
     (str.split("in what movies did % appear"), title_by_actor),
-
-    # NEW: five varied patterns
-    (str.split("how many movies did % direct"), count_movies_by_director),
-    (str.split("number of movies directed by %"), count_movies_by_director),
-    (str.split("count movies by %"), count_movies_by_director),
-    (str.split("list movies after _ by %"), lambda m: [t for t in title_by_director([m[1]]) if any(get_year(x) > int(m[0]) for x in movie_db if get_title(x) == t)]),
-    (str.split("who starred in %"), actors_by_title),
 
     (["bye"], bye_action),
 ]
